@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxManagement", "TaxManagement.csproj", "{548723A2-9208-42A6-84C7-B0FDD70B2B97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxManagementTest", "..\TaxManagementTest\TaxManagementTest.csproj", "{B18C1DB3-D3AC-472F-BF60-B9FA78898B77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{548723A2-9208-42A6-84C7-B0FDD70B2B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{548723A2-9208-42A6-84C7-B0FDD70B2B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{548723A2-9208-42A6-84C7-B0FDD70B2B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{548723A2-9208-42A6-84C7-B0FDD70B2B97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B18C1DB3-D3AC-472F-BF60-B9FA78898B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B18C1DB3-D3AC-472F-BF60-B9FA78898B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B18C1DB3-D3AC-472F-BF60-B9FA78898B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B18C1DB3-D3AC-472F-BF60-B9FA78898B77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C60859A-B2B0-48F8-A0BD-7C91CFA03472}
+	EndGlobalSection
+EndGlobal

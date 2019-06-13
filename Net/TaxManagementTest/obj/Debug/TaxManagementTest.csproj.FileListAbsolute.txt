@@ -1,0 +1,16 @@
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\obj\Debug\TaxManagementTest.csprojAssemblyReference.cache
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\obj\Debug\TaxManagementTest.csproj.CoreCompileInputs.cache
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\TaxManagementTest.dll
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\TaxManagementTest.pdb
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\Castle.Core.dll
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\NSubstitute.dll
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\nunit.framework.dll
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\TaxManagement.dll
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\TaxManagement.pdb
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\nunit.framework.pdb
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\nunit.framework.xml
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\obj\Debug\TaxManagementTest.csproj.CopyComplete
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\obj\Debug\TaxManagementTest.dll
+D:\DIR E OLD\unitest\unittest2018\TaxManagementTest\obj\Debug\TaxManagementTest.pdb

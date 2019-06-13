@@ -1,0 +1,5 @@
+D:\DIR E OLD\unitest\unittest2018\TaxManagement\obj\Debug\TaxManagement.csproj.CoreCompileInputs.cache
+D:\DIR E OLD\unitest\unittest2018\TaxManagement\bin\Debug\TaxManagement.dll
+D:\DIR E OLD\unitest\unittest2018\TaxManagement\bin\Debug\TaxManagement.pdb
+D:\DIR E OLD\unitest\unittest2018\TaxManagement\obj\Debug\TaxManagement.dll
+D:\DIR E OLD\unitest\unittest2018\TaxManagement\obj\Debug\TaxManagement.pdb
