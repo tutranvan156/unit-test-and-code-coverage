@@ -50,7 +50,7 @@ public class BankService implements IBankService {
      * {@inheritDoc}
      */
     @Override
-    public double calculateInterestRevenue(Person person) {
+    public  double calculateInterestRevenue(Person person) {
         double savingAccount = person.getSavingAccount();
         if (savingAccount < 10) {
             throw new IllegalArgumentException(

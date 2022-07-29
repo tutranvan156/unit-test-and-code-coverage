@@ -17,10 +17,8 @@
 package vn.elca.training.unittesting.service.impl;
 
 import java.util.Date;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+
+import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 import vn.elca.training.unittesting.dom.Person;
 import vn.elca.training.unittesting.service.IPersonTaxService;
@@ -39,7 +37,12 @@ class TaxServiceTest {
         taxService = new TaxService();
     }
 
+    @BeforeEach
+    void setupEach() {
+    }
+
     @Test
+    @Tag("fast")
     void testUpdateAnnualTax() {
         // 1. Arrange.
         Person person = new Person(1, "Hung", "Nguyen", new Date(), 1000);
@@ -67,5 +70,25 @@ class TaxServiceTest {
         // 3. Assert.
         //Mockito.verify(personTaxServiceMock);
         Assertions.assertEquals(mockAnnualTax, updatedPerson.getAnnualTax(), "Incorrect Annual Tax");
+    }
+
+    //note MIN_INHERIT_TAX = -100
+    @Test
+    void testUpdateInheritTax() {
+        Person person = new Person(1, "Hung", "Nguyen", new Date(), 1000);
+        double mockInheriteTax = 350;
+        //first I need to create mock object, I can see that in this service it have call personTaxService,
+        //but this service now is not available
+        IPersonTaxService personTaxServiceMock = Mockito.mock(IPersonTaxService.class);
+        /**
+         * It means that when in the function call method calculateInheritTax then instead of return real value
+         * It will return mockInheriteTax, this is my value
+         */
+        Mockito.when(personTaxServiceMock.calculateInheritTax(person)).thenReturn(mockInheriteTax);
+
+
+        Person personUpdateInheriteTax = taxService.updateInheritTax(person);
+
+        Assertions.assertEquals(mockInheriteTax, personUpdateInheriteTax.getInheritTax(), "Incorrect Inherited tax");
     }
 }
