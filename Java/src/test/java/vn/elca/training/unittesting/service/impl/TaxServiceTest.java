@@ -16,21 +16,24 @@
 
 package vn.elca.training.unittesting.service.impl;
 
-import java.util.Date;
-
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 import vn.elca.training.unittesting.dom.Person;
 import vn.elca.training.unittesting.service.IPersonTaxService;
 
+import java.util.Date;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 /**
  * @author qvr
- *
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class TaxServiceTest {
 
     private TaxService taxService = null;
+    private static final double MIN_INHERIT_TAX = -100;
+
 
     @BeforeAll
     void setup() {
@@ -39,6 +42,8 @@ class TaxServiceTest {
 
     @BeforeEach
     void setupEach() {
+
+
     }
 
     @Test
@@ -76,19 +81,46 @@ class TaxServiceTest {
     @Test
     void testUpdateInheritTax() {
         Person person = new Person(1, "Hung", "Nguyen", new Date(), 1000);
-        double mockInheriteTax = 350;
-        //first I need to create mock object, I can see that in this service it have call personTaxService,
-        //but this service now is not available
+        double mockInheritTax = 360;
         IPersonTaxService personTaxServiceMock = Mockito.mock(IPersonTaxService.class);
-        /**
-         * It means that when in the function call method calculateInheritTax then instead of return real value
-         * It will return mockInheriteTax, this is my value
-         */
-        Mockito.when(personTaxServiceMock.calculateInheritTax(person)).thenReturn(mockInheriteTax);
-
-
+        Mockito.when(personTaxServiceMock.calculateInheritTax(person)).thenReturn(mockInheritTax);
+        Mockito.doNothing().when(personTaxServiceMock).consolidateTax(person);
+        taxService.setPersonTaxService(personTaxServiceMock);
         Person personUpdateInheriteTax = taxService.updateInheritTax(person);
+        Assertions.assertEquals(mockInheritTax, personUpdateInheriteTax.getInheritTax(), "Incorrect Inherited tax");
+    }
 
-        Assertions.assertEquals(mockInheriteTax, personUpdateInheriteTax.getInheritTax(), "Incorrect Inherited tax");
+    @Test
+    void testUpdateInheritTaxWithException() {
+        Person person = new Person(1, "Hung", "Nguyen", new Date(), 1000);
+        double mockInheritTax = -200;
+        IPersonTaxService personTaxServiceMock = Mockito.mock(IPersonTaxService.class);
+        Mockito.when(personTaxServiceMock.calculateInheritTax(person)).thenReturn(mockInheritTax);
+        Mockito.doNothing().when(personTaxServiceMock).consolidateTax(person);
+        taxService.setPersonTaxService(personTaxServiceMock);
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            Person personUpdateInheriteTax = taxService.updateInheritTax(person);
+        });
+        Assertions.assertEquals("inheriteTax must larger than equal " + MIN_INHERIT_TAX, exception.getMessage());
+    }
+
+    @Test
+    void testUpdateAnnualTaxPercentage() {
+        Person person = new Person(1, "Hung", "Nguyen", new Date(), 1000);
+        double mockAnnualTaxPercentage = 20;
+        double mockAnnualTax = 300;
+        IPersonTaxService personTaxServiceMock = Mockito.mock(IPersonTaxService.class);
+
+        Mockito.when(personTaxServiceMock.calculateAnnualTax(person)).thenReturn(mockAnnualTax);
+        Mockito.when(personTaxServiceMock.calculateAnnualTaxPercentage(person)).thenReturn(mockAnnualTaxPercentage);
+
+        Mockito.doNothing().when(personTaxServiceMock).consolidateTax(person);
+
+        taxService.setPersonTaxService(personTaxServiceMock);
+
+
+        person = taxService.updateAnnualTaxPercentage(person);
+        Assertions.assertEquals(person, taxService.updateAnnualTaxPercentage(person));
     }
 }
